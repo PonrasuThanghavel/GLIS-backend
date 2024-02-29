@@ -10,7 +10,7 @@ const app = express();
 const port = 4000;
 
 app.use(cors());
-mongoose.connect('mongodb://127.0.0.1/GLIS', {
+mongoose.connect('mongodb+srv://ponrasuthanghavel:Admin09@cluster0.lnvpvbj.mongodb.net/', {
   useUnifiedTopology: true,
   useNewUrlParser: true,
 })

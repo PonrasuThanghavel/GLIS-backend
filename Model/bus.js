@@ -38,7 +38,7 @@ const BusStationSchema = new mongoose.Schema({
 }
 ,
 {
-  collection: 'bus'
+  collection: 'info'
 });
 
 // Create BusStation model
