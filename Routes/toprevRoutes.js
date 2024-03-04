@@ -6,7 +6,7 @@ const BusStation = require('../Model/info.js');
 router.get('/', async (req, res) => {
   try {
     const busStations = await BusStation.find({})
-      .select('Name Rev Zone_type Plat Acc_Score')
+      .select('Name Rev Zone_type Size Acc_Score')
       .sort({ Rev: -1 })
       .limit(5);
     res.json(busStations);
