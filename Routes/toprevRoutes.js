@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const BusStation = require('../Model/bus.js');
+const BusStation = require('../Model/info.js');
 
 // Get top revenue
 router.get('/', async (req, res) => {
   try {
     const busStations = await BusStation.find({})
-      .select('Name Rev Com Plat Acc_Score')
+      .select('Name Rev Zone_type Plat Acc_Score')
       .sort({ Rev: -1 })
       .limit(5);
     res.json(busStations);

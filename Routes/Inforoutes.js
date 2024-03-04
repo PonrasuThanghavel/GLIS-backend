@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const BusStation = require('../Model/bus.js');
+const BusStation = require('../Model/info.js');
 
 // Get all bus stations
 router.get('/', async (req, res) => {
