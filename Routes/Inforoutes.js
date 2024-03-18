@@ -13,6 +13,17 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/graph', async (req, res) => {
+  try {
+    const busStation = await BusStation.find({})
+      .select('Rev Size')
+      .sort({ Rev: 1 });
+    res.json(busStation);
+  } catch (error) {
+    console.error('Error fetching bus stations for graph:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
 // Get bus station by ID
 router.get('/:id', async (req, res) => {
   const { id } = req.params;
@@ -25,19 +36,6 @@ router.get('/:id', async (req, res) => {
   } catch (error) {
     console.error('Error fetching bus station by ID:', error);
     return res.status(500).json({ error: 'Internal Server Error' });
-  }
-});
-
-router.get('/graph', async (req, res) => {
-  try {
-    const busStations = await BusStation.find({})
-    .select('Rev Size')
-    .sort({Rev})
-    ;
-    res.json(busStations);
-  } catch (error) {
-    console.error('Error fetching bus stations:', error);
-    res.status(500).json({ error: 'Internal Server Error' });
   }
 });
 
