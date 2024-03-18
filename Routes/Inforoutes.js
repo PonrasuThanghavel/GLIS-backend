@@ -28,4 +28,17 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+router.get('/graph', async (req, res) => {
+  try {
+    const busStations = await BusStation.find({})
+    .select('Rev Size')
+    .sort({Rev})
+    ;
+    res.json(busStations);
+  } catch (error) {
+    console.error('Error fetching bus stations:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
+});
+
 module.exports = router;
