@@ -2,6 +2,17 @@ const express = require("express");
 const router = express.Router();
 const Land = require("../Model/agri");
 
+
+
+router.get('/fetch', async (req, res) => {
+    try {
+      const land= await Land.find({});
+      res.json(land);
+    } catch (error) {
+      console.error(':', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+    }
+  });
 router.post('/add', async (req, res) => {
     try {
         const { ownerName,  phoneNumber, contact, address, landSize, soilType, cropCultivated, agriculturalLoan, latitude, longitude, cropPrice } = req.body;
