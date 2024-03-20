@@ -30,21 +30,21 @@ router.post('/add', async (req, res) => {
     }
 });
 
-    router.delete('/delete/:name', async (req, res) => {
-        try {
-            const { name } = req.params;
-            // Find the document by name and delete it
-            const deletedLand = await Land.findOneAndDelete({ ownerName: name });
-            if (!deletedLand) {
-                return res.status(404).json({ error: 'Land not found' });
-            }
-            res.status(200).json({ message: 'Land details deleted successfully', deletedLand });
-        } catch (error) {
-            console.error('Error deleting land details:', error);
-            res.status(500).json({ error: 'Internal server error' });
+router.delete('/delete/:id', async (req, res) => {
+    try {
+        const { id } = req.params; // Corrected to use "id" instead of "name"
+        // Find the document by id and delete it
+        const deletedLand = await Land.findOneAndDelete({ _id: id });
+        if (!deletedLand) {
+            return res.status(404).json({ error: 'Land not found' });
         }
-    });
-    
+        res.status(200).json({ message: 'Land details deleted successfully', deletedLand });
+    } catch (error) {
+        console.error('Error deleting land details:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 
 
 module.exports = router;

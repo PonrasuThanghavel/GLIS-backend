@@ -7,6 +7,7 @@ const  userSchema = new mongoose.Schema({
     Usr_phone:{type:"number",required:"true"},
     Usr_address:{type:"string",required:"true"},
     Usr_pass:{type:"string",required:"true"},
+    role:{type:"string",required:"true"},
 
 },
 {

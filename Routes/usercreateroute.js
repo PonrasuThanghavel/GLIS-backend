@@ -5,10 +5,10 @@ const User = require('../Model/user.js'); // Import User model
 
 router.post('/add', async (req, res) => {
   try {
-      const { Usr_name, Usr_email, Usr_phone, Usr_address, Usr_pass } = req.body;
+      const { Usr_name, Usr_email, Usr_phone, Usr_address, Usr_pass,role } = req.body;
       const salt = await bcrypt.genSalt(10);
       const hashedPassword = await bcrypt.hash(Usr_pass, salt);
-      const newUser = new User({ Usr_name, Usr_email, Usr_phone, Usr_address, Usr_pass: hashedPassword  }); // Instantiate a new User
+      const newUser = new User({ Usr_name, Usr_email, Usr_phone, Usr_address, Usr_pass: hashedPassword ,role }); // Instantiate a new User
 
       await newUser.save(); 
       const response = {
