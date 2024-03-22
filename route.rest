@@ -1,23 +1,14 @@
 
-GET  http://localhost:4000/api/agri/fetch
-#     Content-Type: application/json
-
-# {
-#     "ownerName": "John Doe",
-#     "phoneNumber": "123-456-7890",
-#     "contact": "Jane Doe",
-#     "address": "123 Main St, City",
-#     "landSize": "10 acres",
-#     "soilType": "Clay loam",
-#     "cropCultivated": "Wheat",
-#     "agriculturalLoan": "Yes",
-#     "latitude": "40.7128° N",
-#     "longitude": "74.0060° W",
-#     "cropPrice": "$200 per ton"
-# }
-DELETE http://localhost:4000/api/agri/delete/John%20Doe
+POST   https://glis-backend.onrender.com/api/user/add
 Content-Type: application/json
+   
+{
+    "Usr_name":"admin",
+    "Usr_email":"admin@example.com",
+    "Usr_phone":"123",
+    "Usr_address":"sathy",
+    "Usr_pass":"1234",
+    "role":"Farmer"
+}
 
-# {
-#     "Name": "John Doe"}
-# # GET http://localhost:4000/api/bus-stations/graph
+

@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
-const busStationsRoutes = require('./Routes/Inforoutes.js');
+const dataRoutes = require('./Routes/Inforoutes.js');
 const topRevenueRoutes = require('./Routes/toprevRoutes.js');
 const floodRiskRoutes = require('./Routes/floodriskRoutes.js');
 const enviSafetyRoutes = require('./Routes/enviRoutes.js');
@@ -31,9 +31,9 @@ process.on('SIGINT', () => {
   });
 });
 
-// Define API endpoints
+// API endpoints
 
-app.use('/api/bus-stations', busStationsRoutes);
+app.use('/api/bus-stations', dataRoutes);
 app.use('/api/top-revenue', topRevenueRoutes);
 app.use('/api/flood-risk', floodRiskRoutes);
 app.use('/api/envi-safety', enviSafetyRoutes);
