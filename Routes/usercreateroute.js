@@ -19,7 +19,7 @@ router.post('/add', async (req, res) => {
       Usr_email,
       Usr_phone,
       Usr_address,
-      Usr_pass: hashedPassword, // Store the hashed password in the database
+      Usr_pass: Usr_pass, // Store the hashed password in the database
       role
     });
 
